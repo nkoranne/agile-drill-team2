@@ -11,5 +11,14 @@ app.get('/', (req,res) => {
 })
 
 app.get('/addCourse', (req,res) => {
-  res.sendFile('addNewCourse.html', {root: __dirname})
+    res.sendFile('addNewCourse.html', {root: __dirname})
+})
+
+app.get('/addEvent', (req,res) => {
+  res.sendFile('addNewEvent.html', {root: __dirname})
+})
+
+app.get('/courses', (req, res) => {
+    res.sendFile('courses.html', {
+    root: __dirname})
 })
