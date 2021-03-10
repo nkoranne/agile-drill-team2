@@ -1,8 +1,22 @@
 const express = require('express')
+var mysql = require('mysql')
 const app = express()
 const port = 3000
 
 app.set('view engine', 'ejs');
+
+var connection = mysql.createConnection({
+  socketPath: '/tmp/mysql.sock',
+  user: 'root',
+  password: 'password',
+  database: 'MapDatabase'
+});
+
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 
 app.listen(port, () => {
   console.log(`Now listening at http://localhost:${port}`)
@@ -21,8 +35,16 @@ app.get('/addEvent', (req, res) => {
 })
 
 app.get('/courses', (req, res) => {
-  res.render('courses', {
-  })
+  //DB Query to Display all Courses.
+  connection.query('SELECT * FROM Course', function (error, results, fields) {
+    if (error) throw error;
+    console.log(results);
+
+    res.render('courses', {
+      queryResults : results
+    })
+  });
+
 })
 
 app.get('/course-1', (req, res) => {
