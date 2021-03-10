@@ -16,3 +16,15 @@ app.get('/courses', (req, res) => {
     res.sendFile('courses.html', {
     root: __dirname})
 })
+
+app.get('/course-1', (req, res) => {
+  res.sendFile('course-1.html', {
+    root: __dirname
+  })
+})
+
+app.get('/course-2', (req, res) => {
+  res.sendFile('course-2.html', {
+    root: __dirname
+  })
+})
