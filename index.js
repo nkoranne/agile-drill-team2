@@ -7,5 +7,12 @@ app.listen(port, () => {
 })
 
 app.get('/', (req,res) => {
-    res.sendFile('index.html', {root: __dirname})
+    res.sendFile('index.html', {
+      root: __dirname
+    })
+})
+
+app.get('/courses', (req, res) => {
+    res.sendFile('courses.html', {
+    root: __dirname})
 })
