@@ -45,19 +45,11 @@
                         <label for="description" class="form-label">Description</label>
                         <textarea type="text" class="form-control" id="description" placeholder="Learn about how developers, managers and owners can work together to improve the quality of our products and provide a better service to our clients"></textarea>
                     </div>
-                    <div class="mb-3 row">
+                    <div class="mb-3">
                         <label class="form-label">Duration</label>
-                        <div class="col-sm-3 text-right">
-                            <input type="text" class="form-control" id="duration" placeholder="2">
-                        </div>
-                        <div class="col-sm-9">
-                            <select class="form-select" data-bind="value:replyNumber" id="timeDropdown" required="">
-                                <option value="">Choose...</option>
-                                <option>Hours</option>
-                                <option>Days</option>
-                                <option>Weeks</option>
-                                <option>Months</option>
-                            </select>
+                        <input type="text" class="form-control" id="duration"">
+                        <div id="durationHelpBlock" class="form-text">
+                            <p>Please state the length of the course in days</p>
                         </div>
                     </div>
                     <div class="mb-3">
