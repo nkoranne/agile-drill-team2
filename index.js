@@ -63,3 +63,34 @@ app.post('/course-further-info', (req, res) => {
     })
   });
 })
+
+/* HOW TO GATHER USER INPUT:
+Set the name value in the HTML of the element 
+Once form is submitted you can access the elements inputted on the form in the POST function below by
+using req.body.NAME_OF_HTML_ELEMENT
+
+e.g. req.body.courseName if courseName was the name of the element/name tag in HTML 
+
+ < input type = "text"
+ class = "form-control"
+ id = "id" name=courseId >
+
+*/
+
+app.post('/add-course', (req, res) => {
+  //READ INPUT FROM FORM
+
+  //USE INPUT TO MAKE AN INSERT STATEMENT INTO DB
+  connection.query('QUERY HERE', function (error, results, fields) {
+    if (error) throw error;
+  });
+})
+
+app.post('/add-event', (req, res) => {
+   //READ INPUT FROM FORM
+
+   //USE INPUT TO MAKE AN INSERT STATEMENT INTO DB
+  connection.query('QUERY HERE', function (error, results, fields) {
+    if (error) throw error;
+  });
+})
