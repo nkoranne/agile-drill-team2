@@ -81,9 +81,10 @@ app.post('/add-course', (req, res) => {
   //READ INPUT FROM FORM
 
   //USE INPUT TO MAKE AN INSERT STATEMENT INTO DB
-  connection.query('QUERY HERE', function (error, results, fields) {
+  connection.query('QUERY HERE'),
+    function (error, results, fields) {
     if (error) throw error;
-  });
+  };
 })
 
 app.post('/add-event', (req, res) => {
@@ -93,4 +94,16 @@ app.post('/add-event', (req, res) => {
   connection.query('QUERY HERE', function (error, results, fields) {
     if (error) throw error;
   });
+})
+
+app.post('/booking', (req,res) => {
+  console.log("Connection has been hit ")
+
+   connection.query('INSERT INTO Employee (emp_firstName, emp_lastName, emp_email, emp_acessLevel) VALUES (\'' + req.body.firstName + '\', \'' + req.body.surname + '\', \'' + req.body.email + '\', 1)', function (error, results, fields) {
+     if (error) throw error;
+   });
+
+   connection.query('INSERT INTO EVENTS(event_title, event_date, event_location, trainer_id, emp_id,course_id) VALUES ()', function (error, results, fields) {
+     if (error) throw error;
+   });
 })
