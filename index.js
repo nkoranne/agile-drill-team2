@@ -26,15 +26,7 @@ app.listen(port, () => {
 })
 
 app.get('/', (req, res) => {
- //DB Query to Display all Courses.
- connection.query('SELECT * FROM Events INNER JOIN course on Events.course_id = Course.course_id', function (error, results, fields) {
-   if (error) throw error;
-
-   res.render('courses', {
-     queryResults: results,
-     successfulBooking: ""
-   })
- });
+  res.render('courses', {})
 })
 
 app.get('/addCourse', (req, res) => {
@@ -53,8 +45,7 @@ app.get('/courses', (req, res) => {
     console.log(results)
 
     res.render('courses', {
-      queryResults : results,
-      successfulBooking: ""
+      queryResults : results
     })
   });
 
@@ -66,15 +57,12 @@ app.get('/course-further-info', (req, res) => {
 
 app.post('/course-further-info', (req, res) => {
   //DB Query to Display the Course clicked on to see more.
-    connection.query('select * from Events INNER JOIN course on Events.course_id = Course.course_id INNER JOIN trainer on Events.trainer_id = Trainer.trainer_id where Events.course_id = ' + req.body.courseNo, function (error, results, fields) {
-      if (error) throw error;
-      
-      connection.query('select count(emp_id) AS num from events where course_id = ' + req.body.courseNo + ' group by course_id', function (error, count_results, fields) {
-      res.render('course-further-info', {
-        queryResults: results,
-        count: count_results[0].num
-      })
-    });
+  connection.query('select * from Events INNER JOIN course on Events.course_id = Course.course_id INNER JOIN trainer on Events.trainer_id = Trainer.trainer_id where Events.course_id = ' + req.body.courseNo, function (error, results, fields) {
+    if (error) throw error;
+
+    res.render('course-further-info', {
+      queryResults: results
+    })
   });
 })
 
@@ -95,10 +83,9 @@ app.post('/add-course', (req, res) => {
   //READ INPUT FROM FORM
 
   //USE INPUT TO MAKE AN INSERT STATEMENT INTO DB
-  connection.query('QUERY HERE'),
-    function (error, results, fields) {
+  connection.query('QUERY HERE', function (error, results, fields) {
     if (error) throw error;
-  };
+  });
 })
 
 app.post('/add-event', (req, res) => {
