@@ -47,8 +47,10 @@ app.get('/addEvent', (req, res) => {
 
 app.get('/courses', (req, res) => {
   //DB Query to Display all Courses.
-  connection.query('SELECT DISTINCT (course.course_id, course.course_title, course.course_description, events.event_date, events.event_location) FROM Events INNER JOIN course on Events.course_id = Course.course_id', function (error, results, fields) {
+  connection.query('SELECT DISTINCT course.course_id, course.course_title, course.course_description, events.event_date, events.event_location FROM Events INNER JOIN course on Events.course_id = Course.course_id;', function (error, results, fields) {
     if (error) throw error;
+
+    console.log(results)
 
     res.render('courses', {
       queryResults : results,
@@ -122,13 +124,12 @@ app.post('/booking', (req,res) => {
     });
    });
 
-  //DB Query to Display all Courses.
-  connection.query('SELECT * FROM Events INNER JOIN course on Events.course_id = Course.course_id', function (error, results, fields) {
+  connection.query('SELECT DISTINCT course.course_id, course.course_title, course.course_description, events.event_date, events.event_location FROM Events INNER JOIN course on Events.course_id = Course.course_id;', function (error, results, fields) {
     if (error) throw error;
 
     res.render('courses', {
       queryResults: results,
-      successfulBooking: "Booking has been made."
+      successfulBooking: ""
     })
   });
 });
