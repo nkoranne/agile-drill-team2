@@ -32,154 +32,32 @@
 
   <br>
   <br>
+
+  <% var i = 0 %>
+  <% for (var i = 0; i < queryResults.length; i++) {%>
   <div class="row">
     <div class="container">
       <div class="card-deck">
         <div class="card">
-          <% var i = 0 %>
-          <% if (queryResults.length > i) { %>
             <div class="card-body text-center">
-              <h5><%= queryResults[0].course_title %></h5>
+              <h5><%= queryResults[i].course_title %></h5>
+              <p class="card-text">Date: <%= queryResults[i].event_date%></p>
+              <p class="card-text">Location: <%= queryResults[i].event_location%></p>
               <p class="card-text"><%= queryResults[i].course_description%></p>
-              <a href="course-1" class="btn btn-primary">More info</a>
+
+              <form method="post" name="more-info" action="/course-further-info">
+                <input type="text" name="courseNo" value="<%= queryResults[i].course_id%>" hidden>
+                <button type="submit" class="btn btn-primary">More info</button>
+              </form>     
+
             </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-           <% if (queryResults.length > i) { %>
-           <div class="card-body text-center">
-             <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-             <a href="course-1" class="btn btn-primary">More info</a>
-           </div>
-           <% i = i + 1 %>
-           <% } %>
-        </div>
-       <div class="card">
-         <% if (queryResults.length > i) { %>
-         <div class="card-body text-center">
-           <h5><%= queryResults[i].course_title %></h5>
-           <p class="card-text"><%= queryResults[i].course_description%></p>
-           <a href="course-1" class="btn btn-primary">More info</a>
-         </div>
-         <% i = i + 1 %>
-         <% } %>
-       </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <br>
+  <br><br><br>
+<% } %>
 
-  <div class="row">
-    <div class="container">
-      <div class="card-deck">
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <div class="row">
-    <div class="container">
-      <div class="card-deck">
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-        <div class="card">
-          <% if (queryResults.length > i) { %>
-          <div class="card-body text-center">
-            <h5><%= queryResults[i].course_title %></h5>
-            <p class="card-text"><%= queryResults[i].course_description%></p>
-            <a href="course-1" class="btn btn-primary">More info</a>
-          </div>
-          <% i = i + 1 %>
-          <% } %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  </div>
 </body>
 
 </html>

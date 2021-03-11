@@ -28,24 +28,22 @@
     <div class="row">
       <div class="col">
         <br>
-        <h4><small>Course One Sample</small></h4>
+        <h4><small>Kainos Map Course</small></h4>
         <hr>
-        <h2>Kainos Course One</h2>
-        <h5><span class="glyphicon glyphicon-time"></span> Taking place: Sep 24, 2015.</h5>
-        <h5><span class="label label-success">Further Information</span></h5><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2><%= queryResults[0].course_title%></h2>
+        <h5><span class="glyphicon glyphicon-time"></span> Location: <%= queryResults[0].event_location%></h5>
+        <h5><span class="glyphicon glyphicon-time"></span> Trainer Name: <%= queryResults[0].trainer_firstName%>
+          <%= queryResults[0].trainer_lastName%></h5>
+        <h5><span class="glyphicon glyphicon-time"></span> Trainer Email: <%= queryResults[0].trainer_email%></h5>
+        <h5><span class="label label-success">Course Duration: <%= queryResults[0].course_duration%> Days</span></h5>
+        <h5><span class="glyphicon glyphicon-time"></span> Prefered Attendes: <%= queryResults[0].PreferedAttendees%>
+        </h5><br>
+        <p><%= queryResults[0].course_description%></p>
         <hr>
       </div>
       <div class="col">
         <br>
-        <p class="center"> *counter placeholder*</p>
+        <p class="center"> *counter placeholder* </p>
         <br>
         <form>
           <div class="form-group">

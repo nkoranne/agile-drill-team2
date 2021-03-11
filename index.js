@@ -1,9 +1,13 @@
 const express = require('express')
 var mysql = require('mysql')
+var bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 var connection = mysql.createConnection({
   socketPath: '/tmp/mysql.sock',
@@ -16,7 +20,6 @@ connection.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 });
-
 
 app.listen(port, () => {
   console.log(`Now listening at http://localhost:${port}`)
@@ -36,9 +39,8 @@ app.get('/addEvent', (req, res) => {
 
 app.get('/courses', (req, res) => {
   //DB Query to Display all Courses.
-  connection.query('SELECT * FROM Course', function (error, results, fields) {
+  connection.query('SELECT * FROM Events INNER JOIN course on Events.course_id = Course.course_id', function (error, results, fields) {
     if (error) throw error;
-    console.log(results);
 
     res.render('courses', {
       queryResults : results
@@ -47,10 +49,17 @@ app.get('/courses', (req, res) => {
 
 })
 
-app.get('/course-1', (req, res) => {
-  res.render('course-1', {})
+app.get('/course-further-info', (req, res) => {
+  res.render('course-further-info', {})
 })
 
-app.get('/course-2', (req, res) => {
-  res.render('course-2', { })
+app.post('/course-further-info', (req, res) => {
+  //DB Query to Display the Course clicked on to see more.
+  connection.query('select * from Events INNER JOIN course on Events.course_id = Course.course_id INNER JOIN trainer on Events.trainer_id = Trainer.trainer_id where Events.course_id = ' + req.body.courseNo, function (error, results, fields) {
+    if (error) throw error;
+
+    res.render('course-further-info', {
+      queryResults: results
+    })
+  });
 })
