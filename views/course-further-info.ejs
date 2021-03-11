@@ -50,36 +50,18 @@
       </div>
       <div class="col">
         <br>
-
-        <div class="circle-tile ">
-          <a href="#">
-            <div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div>
-          </a>
-          <div class="circle-tile-content dark-blue">
-            <div class="circle-tile-description text-faded"> Users</div>
-            <div class="circle-tile-number text-faded "><%= count %></div>
-            <a class="circle-tile-footer" href="#"><i class="fa fa-chevron-circle-right"></i></a>
-          </div>
-        </div>
-
+        <p class="center"> *counter placeholder* </p>
         <br>
-        <form method="post" action="/booking" name="bookings">
+        <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">First Name</label>
-            <input type="text" name="firstName" class="form-control" 
-              placeholder="First Name">
+            <label for="exampleInputEmail1">Full Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Full name">
           </div>
-           <div class="form-group">
-             <label for="exampleInputEmail1">Second Name</label>
-             <input type="text" name="surname" class="form-control" placeholder="Second Name">
-           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Email address</label>
-            <input type="email" name="email" class="form-control" id="exampleInputPassword1"
-              placeholder="Email address">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Email address">
           </div>
-          <input hidden name="courseId" value="<%= queryResults[0].course_id %>">
-           <input hidden name="queryResults" value="<%= queryResults[0] %>">
           <button type="submit" class="btn btn-primary">Book now</button>
         </form>
       </div>
@@ -87,4 +69,5 @@
   </div>
 
 </body>
+
 </html>
