@@ -33,28 +33,43 @@
             </div>
 
             <div class="col-6 mx-auto">
-                <form method="post" name="add-course" action="/add-course">
+                <form class="needs-validation" method="post" name="add-course" action="/add-course">
                     <div class="mb-3">
                         <label for="title" class="form-label">Course Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Working Together - A Better Path Forward">
+                        <input required maxlength="100" name="title" type="text" class="form-control" id="title" placeholder="Working Together - A Better Path Forward">
+                        <div class="invalid-feedback">
+                            Please insert a title that's less than 100.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" id="description" placeholder="Learn about how developers, managers and owners can work together to improve the quality of our products and provide a better service to our clients"></textarea>
+                        <textarea required maxlength="300" name="description" type="text" class="form-control" id="description" placeholder="Learn about how developers, managers and owners can work together to improve the quality of our products and provide a better service to our clients"></textarea>
+                        <div id="descriptionHelpBlock" class="help-block">
+                            <p id="characterLeft" class="help-block"></p>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please insert a description that's less than 300 characters.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Duration</label>
-                        <input type="text" class="form-control" id="duration"">
-                        <div id="durationHelpBlock" class="form-text">
+                        <input required name="duration" type="text" class="form-control" id="duration"">
+                        <div id="durationHelpBlock" class="help-block">
                             <p>Please state the length of the course in days</p>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please insert a duration.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Preferred Attendees</label>
                         <div>
-                            <input type="text" class="form-control" id="preferred" data-role="tagsinput" placeholder="Software Developer, People Manager, Product Owner">
+                            <input required maxlength="200" name="preferred" type="text" class="form-control" id="preferred" data-role="tagsinput" placeholder="Software Developer, People Manager, Product Owner">
                             <div id="preferredHelpBlock" class="form-text">
                                 <p>Please separate roles with commas</p>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please insert a preferred attendees list that is less than 200 characters long.
                             </div>
                         </div>
                     </div>
@@ -62,6 +77,9 @@
                 </form>
             </div>
           </main>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>  
     </body>
 </html>
